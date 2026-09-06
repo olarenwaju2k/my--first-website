@@ -48,7 +48,7 @@
             let list = document.getElementById("taskList");
             let item = document.createElement("li");
 
-            item.innerHTML = task;
+            item.innerHTML = task + ' <button onclick="this.parentElement.remove()">❌</button>';
             list.appendChild(item);
 
             input.value = "";
