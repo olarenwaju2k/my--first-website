@@ -21,6 +21,12 @@
    <tittle>My first website</tittle>
 </head>
 <body>
+    <h1>My To-Do List 📝</h1>
+    <input type="text" id="taskInput" placeholder="Enter a task">
+<button onclick="addTask()">Add Task</button>
+
+<ul id="taskList"></ul>
+
      <h1>Welcome to my website!</h1>
      <p>I`m learning web development and AI automation </p>
           <h2 id="goal">My Goal</h2>
@@ -31,6 +37,22 @@
     function changeText() {
     document.getElementById("goal").innerHTML =
         "My goal is to become a successful web developer! 🚀";
+    }
+</script>
+<script>
+    function addTask() {
+        let input = document.getElementById("taskInput");
+        let task = input.value;
+
+        if (task !== "") {
+            let list = document.getElementById("taskList");
+            let item = document.createElement("li");
+
+            item.innerHTML = task;
+            list.appendChild(item);
+
+            input.value = "";
+        }
     }
 </script>
 </body>
