@@ -55,6 +55,7 @@
 
             item.innerHTML = '<span onclick="this.classList.toggle(\'completed\')">' + task + '</span> <button onclick="this.parentElement.remove()">❌</button>';
             list.appendChild(item);
+            saveTasks();
 
             input.value = "";
         }
