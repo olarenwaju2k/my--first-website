@@ -60,6 +60,11 @@
             input.value = "";
         }
     }
+    let savedTasks = localStorage.getItem("tasks");
+
+if (savedTasks) {
+    document.getElementById("taskList").innerHTML = savedTasks;
+}
 </script>
 </body>
 </html>
