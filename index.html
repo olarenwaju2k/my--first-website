@@ -58,6 +58,9 @@
             saveTasks();
 
             input.value = "";
+            function saveTasks() {
+    localStorage.setItem("tasks", document.getElementById("taskList").innerHTML);
+}
         }
 
 if (savedTasks) {
