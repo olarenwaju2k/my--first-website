@@ -44,7 +44,7 @@
         "My goal is to become a successful web developer! 🚀";
     }
 </script>
-<script>
+   <script>
     function addTask() {
         let input = document.getElementById("taskInput");
         let task = input.value;
@@ -54,18 +54,23 @@
             let item = document.createElement("li");
 
             item.innerHTML = '<span onclick="this.classList.toggle(\'completed\')">' + task + '</span> <button onclick="this.parentElement.remove()">❌</button>';
+
             list.appendChild(item);
-            saveTasks();
-
             input.value = "";
-            function saveTasks() {
-    localStorage.setItem("tasks", document.getElementById("taskList").innerHTML);
-}
-        }
 
-if (savedTasks) {
-    document.getElementById("taskList").innerHTML = savedTasks;    
-} 
+            saveTasks();
+        }
+    }
+
+    function saveTasks() {
+        localStorage.setItem("tasks", document.getElementById("taskList").innerHTML);
+    }
+
+    let savedTasks = localStorage.getItem("tasks");
+
+    if (savedTasks) {
+        document.getElementById("taskList").innerHTML = savedTasks;
+    }
 </script>
 </body>
 </html>
