@@ -54,7 +54,7 @@
             let list = document.getElementById("taskList");
             let item = document.createElement("li");
 
-            item.innerHTML = '<span onclick="this.classList.toggle(\'completed\')">' + task + '</span> <button onclick="this.parentElement.remove()">❌</button>';
+            item.innerHTML = '<span onclick="this.classList.toggle(\'completed\')">' + task + '</span> <button onclick="editTask(this)">✏️</button> <button onclick="this.parentElement.remove(); saveTasks()">❌</button>';
 
             list.appendChild(item);
             input.value = "";
@@ -69,6 +69,16 @@
        function clearTasks() {
     document.getElementById("taskList").innerHTML = "";
     localStorage.removeItem("tasks");
+}
+       function editTask(button) {
+    let item = button.parentElement;
+    let span = item.querySelector("span");
+    let newTask = prompt("Edit your task:", span.innerText);
+
+    if (newTask !== null && newTask.trim() !== "") {
+        span.innerText = newTask;
+        saveTasks();
+    }
 }
 
     let savedTasks = localStorage.getItem("tasks");
